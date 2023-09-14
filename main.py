@@ -1,38 +1,43 @@
 import os
 from pwr import Project, CodeLayer
-from pwr.extras.db import DBLayer
-from pwr.extras.figma import FigmaLayer
+# from pwr.extras.db import DBLayer
+# from pwr.extras.figma import FigmaLayer
 from dotenv import load_dotenv
+import argparse
 load_dotenv()
 
 
-class Zen3TierProject(Project):
+class TeamsAppAgent(Project):
 
     def __init__(self, path, **kwargs):
-        layers = [
-            FigmaLayer(
-                header='Figma - Layer 0'
+        layers = [           
+            CodeLayer(
+                header='Cards - Layer 0',
+                code_relative_path='cards',
+                human_label='Cards',
+                flag_label='cards'
             ),
             CodeLayer(
-                header='Mobile - Layer 1',
-                code_relative_path='client',
-                human_label='Mobile',
-                flag_label='mobile'
-            ),
-            CodeLayer(
-                header='GraphQL - Layer 2',
-                code_relative_path='server',
-                human_label='Graphql',
-                flag_label='graphql'
-            ),
-            DBLayer(
-                header='Database - Layer 3'
+                header='API - Layer 1',
+                code_relative_path='./',
+                human_label='API',
+                flag_label='api'
             )
         ]
         super().__init__(path, layers, **kwargs)
 
 
 if __name__ == "__main__":
+
+    # parse command line parameters 
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--change', type=str)
+    args = parser.parse_args()
+
+    change = args.change
+
+    if not change:
+        raise Exception('Change is required; use --change <change>')
 
     kwargs = {
         'debug': {
@@ -45,12 +50,10 @@ if __name__ == "__main__":
         },
     }
 
-    path = os.path.join(os.path.dirname(__file__), '../Zen-Champions')
+    path = os.path.join(os.path.dirname(__file__), '../azure-devops-app')
 
-    agent = Zen3TierProject(
+    agent = TeamsAppAgent(
         path=path
     )
-
-    change = ""
 
     agent.forward(change, **kwargs)
