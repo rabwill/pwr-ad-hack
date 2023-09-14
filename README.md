@@ -1,50 +1,37 @@
-# Azure DevOps Search based message extension across Microsoft 365
+# Programming with Representation (PwR)
 
-![azure devops app demo](./assets/demo-azure-app.gif)
+PwR allows you to make changes with just natural language (NL): Describe your change in simple NL and see the LLM make laser sharp edits across the entire stack. Click here for more information [aka.ms/IGotPwR](https://aka.ms/IGotPwR)
 
-## Features
-- Create new work item
-- Search and insert work item card with actionable buttons
-- Edit existing work item to update title and status
-- link unfurl for work items into card with actionable buttons
+## Teams App Stack
 
-## Prerequisites
+We have described our Teams App as a project that has 2 layers:
 
-- [Node.js](https://nodejs.org/), supported versions: 16, 18
-- An M365 account. If you do not have M365 account, apply one from [M365 developer program](https://developer.microsoft.com/microsoft-365/dev-program)
-- [Set up your dev environment for extending Teams apps across Microsoft 365](https://aka.ms/teamsfx-m365-apps-prerequisites)
-> Please note that after you enrolled your developer tenant in Office 365 Target Release, it may take couple days for the enrollment to take effect.
-- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
-- [Azure Devops Organization access](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/organization-management?view=azure-devops)
+1. Adaptive Cards UI
+2. API 
 
-## Getting Started
+(note: PwR is generic and can support any number of layers, any number of files and any number of languages)
 
-Follow below instructions to get started with this application template for local debugging.
+## Developer notes
 
-### Create an env file 
-
-1.  Create an env folder 
-2. Add .env.local under the env folder in the root
-
-### Test your application with Visual Studio Code
-1. Update `env/.env.local` file with below configurations.
-
-```
-AZURE_PERSONAL_ACCESS_TOKEN=<AZURE_PERSONAL_ACCESS_TOKEN>
-PREVIEW_IMAGE=https://github.com/rabwill/assets/blob/main/task.jpeg
-WORK_ITEM_URL=https://dev.azure.com/<orgname>/<projectname>/_workitems
-ORG_NAME=<orgname>
-PROJECT_NAME=<projectname>
-```
-
-1. Press `F5` or use the `Run and Debug Activity Panel` in Visual Studio Code.
-
-
-## References
-
-* [Extend a Teams message extension across Microsoft 365](https://docs.microsoft.com/microsoftteams/platform/m365-apps/extend-m365-teams-message-extension?tabs=manifest-teams-toolkit)
-* [Bot Framework Documentation](https://docs.botframework.com/)
-* [Teams Toolkit Documentations](https://docs.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals)
-* [Teams Toolkit CLI](https://docs.microsoft.com/microsoftteams/platform/toolkit/teamsfx-cli)
-* [TeamsFx SDK](https://docs.microsoft.com/microsoftteams/platform/toolkit/teamsfx-sdk)
-* [Teams Toolkit Samples](https://github.com/OfficeDev/TeamsFx-Samples)
+1. Pre-requisites
+    1. Python3.10
+    2. Poetry
+    3. Gemfury key to get the `pwr` package. You can get this from a PwR Team member
+2. One-time Setup:
+    1. Setup Poetry shell
+        ```
+        $poetry shell
+        ```
+    2. Add Gemfury key
+        ```
+        $poetry config http-basic.fury <TOKEN> NOPASS
+        ```
+    3. Install all the dependencies
+        ```
+        $poetry install
+        $poetry update
+        ```
+3. Run the PwR agent
+    ```
+    $poetry run python3 main.py
+    ```
