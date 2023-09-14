@@ -33,5 +33,5 @@ We have described our Teams App as a project that has 2 layers:
         ```
 3. Run the PwR agent
     ```
-    $poetry run python3 main.py
+    $poetry run python3 main.py --change <natural language change>
     ```
