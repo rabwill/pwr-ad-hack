@@ -1,7 +1,5 @@
 import os
 from pwr import Project, CodeLayer
-# from pwr.extras.db import DBLayer
-# from pwr.extras.figma import FigmaLayer
 from dotenv import load_dotenv
 import argparse
 load_dotenv()
@@ -54,6 +52,9 @@ if __name__ == "__main__":
                 'page': 'Page 1'
             }
         },
+        'llm': {
+            
+        }
     }
 
     path = os.path.join(os.path.dirname(__file__), '../DevOps Workflow Accelerator')
