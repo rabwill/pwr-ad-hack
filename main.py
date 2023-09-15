@@ -22,6 +22,12 @@ class TeamsAppAgent(Project):
                 code_relative_path='./',
                 human_label='API',
                 flag_label='api'
+            ),
+            CodeLayer(
+                header='BOT - Layer 2',
+                code_relative_path='./',
+                human_label='BOT',
+                flag_label='bot'
             )
         ]
         super().__init__(path, layers, **kwargs)
@@ -50,7 +56,7 @@ if __name__ == "__main__":
         },
     }
 
-    path = os.path.join(os.path.dirname(__file__), '../azure-devops-app')
+    path = os.path.join(os.path.dirname(__file__), '../DevOps Workflow Accelerator')
 
     agent = TeamsAppAgent(
         path=path
