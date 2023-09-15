@@ -17,6 +17,7 @@ We have described our Teams App as a project that has 2 layers:
     1. Python3.10
     2. Poetry
     3. Gemfury key to get the `pwr` package. You can get this from a PwR Team member
+    4. OpenAI API Key with access to both GPT3.5 and GPT4
 2. One-time Setup:
     1. Setup Poetry shell
         ```
@@ -30,6 +31,11 @@ We have described our Teams App as a project that has 2 layers:
         ```
         $poetry install
         $poetry update
+        ```
+    4. Add `.env` file
+        ```
+        # .env
+        OPENAI_API_KEY=<key>
         ```
 3. Run the PwR agent
     ```
