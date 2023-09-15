@@ -34,9 +34,25 @@ We have described our Teams App as a project that has 2 layers:
         ```
     4. Add `.env` file
         ```
-        # .env
         OPENAI_API_KEY=<key>
+        # If you are using Azure OpenAI uncomment the following rows
+        # OPENAI_API_BASE="https://XXXXXXX.azure-api.net"
+        # OPENAI_API_TYPE="azure"
+        # OPENAI_API_VERSION="2023-03-15-preview"
         ```
+    5. If you are using Azure OpenAI the deployment IDs (model names) can be different. You need to update the main.py code to with the right model names:
+        ```
+        kwargs = {
+            ...
+            'llm': {
+                'slow_model_name': 'gpt-35-tunro',
+                'fast_model_name': 'gpt4'
+            }
+        }
+
+        // pass the arguments to the agent
+        agent.forward(change, **kwargs)
+        ``` 
 3. Run the PwR agent
     ```
     $poetry run python3 main.py --change <natural language change>

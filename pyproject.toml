@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "zen-agent"
+name = "teams-app-agent"
 version = "0.1.0"
 description = ""
 authors = ["Sameer Segal <sameersegal@microsoft.com>"]
