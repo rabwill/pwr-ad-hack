@@ -473,13 +473,13 @@ wandb = ["numpy", "openpyxl (>=3.0.7)", "pandas (>=1.2.3)", "pandas-stubs (>=1.1
 
 [[package]]
 name = "pwr"
-version = "0.1.12"
+version = "0.1.13"
 description = ""
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "pwr-0.1.12-py3-none-any.whl", hash = "sha256:898d73414d134d6509d0403db44ecfbcb75c1a5f6ec7018035acc32151361700"},
-    {file = "pwr-0.1.12.tar.gz", hash = "sha256:14b552ebb0bf48ca3ada4efd851c7698c917d152bb008b4b3d348f1d06a41a88"},
+    {file = "pwr-0.1.13-py3-none-any.whl", hash = "sha256:e807d5af8e68d97b0f7241da3c82f47956a48df44cd6c6d6b870139b76273957"},
+    {file = "pwr-0.1.13.tar.gz", hash = "sha256:09dd2bc208d118e3957efc041d79ea693b35bd411b539a1fae1e6cee20dd3c8e"},
 ]
 
 [package.dependencies]
