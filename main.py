@@ -35,10 +35,15 @@ if __name__ == "__main__":
 
     # parse command line parameters 
     parser = argparse.ArgumentParser()
+    parser.add_argument('--path', type=str)
     parser.add_argument('--change', type=str)
     args = parser.parse_args()
 
     change = args.change
+    path = args.path
+
+    if not path:
+        raise Exception('Path is required; use --path <relative path to project>')
 
     if not change:
         raise Exception('Change is required; use --change <change>')
@@ -47,17 +52,14 @@ if __name__ == "__main__":
         'debug': {
             'write_file': True,
             'llm': False,
-            'steps': True,
-            'figma': {
-                'page': 'Page 1'
-            }
+            'steps': True
         },
         'llm': {
             
         }
     }
 
-    path = os.path.join(os.path.dirname(__file__), '../DevOps Workflow Accelerator')
+    path = os.path.join(os.path.dirname(__file__), path)
 
     agent = TeamsAppAgent(
         path=path
