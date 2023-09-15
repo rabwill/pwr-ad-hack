@@ -14,18 +14,18 @@ class TeamsAppAgent(Project):
                 code_relative_path='cards',
                 human_label='Cards',
                 flag_label='cards'
-            ),
+            ),           
             CodeLayer(
-                header='API - Layer 1',
-                code_relative_path='./',
-                human_label='API',
-                flag_label='api'
-            ),
-            CodeLayer(
-                header='BOT - Layer 2',
+                header='BOT - Layer 1',
                 code_relative_path='./',
                 human_label='BOT',
                 flag_label='bot'
+            ),
+             CodeLayer(
+                header='API - Layer 2',
+                code_relative_path='./',
+                human_label='API',
+                flag_label='api'
             )
         ]
         super().__init__(path, layers, **kwargs)
