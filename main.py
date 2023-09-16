@@ -17,13 +17,13 @@ class TeamsAppAgent(Project):
             ),           
             CodeLayer(
                 header='BOT - Layer 1',
-                code_relative_path='./',
+                code_relative_path='teamsBot',
                 human_label='BOT',
                 flag_label='bot'
             ),
              CodeLayer(
                 header='API - Layer 2',
-                code_relative_path='./',
+                code_relative_path='api',
                 human_label='API',
                 flag_label='api'
             )
@@ -52,7 +52,8 @@ if __name__ == "__main__":
         'debug': {
             'write_file': True,
             'llm': False,
-            'steps': True
+            'steps': True,
+            'plan': True
         },
         'llm': {
             
