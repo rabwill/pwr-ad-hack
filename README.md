@@ -39,20 +39,16 @@ We have described our Teams App as a project that has 2 layers:
         # OPENAI_API_BASE="https://XXXXXXX.azure-api.net"
         # OPENAI_API_TYPE="azure"
         # OPENAI_API_VERSION="2023-03-15-preview"
-        ```
-    5. If you are using Azure OpenAI the deployment IDs (model names) can be different. You need to update the main.py code to with the right model names:
-        ```
-        kwargs = {
-            ...
-            'llm': {
-                'slow_model_name': 'gpt-35-tunro',
-                'fast_model_name': 'gpt4'
-            }
-        }
+        
+        # Change the deployement id if they are different
+        FAST_LLM_MODEL_NAME=gpt-3.5-turbo
+        SLOW_LLM_MODEL_NAME=gpt-4
 
-        // pass the arguments to the agent
-        agent.forward(change, **kwargs)
-        ``` 
+        # Change these time outs depending on your rate limiting budget
+        LLM_TIME_OUT_MULTIPLIER=10
+        LLM_TIME_OUT_MAX=60
+        LLM_MAX_RETRY=3
+        ```
 3. Run the PwR agent
     ```
     $poetry run python3 main.py --change <natural language change>
