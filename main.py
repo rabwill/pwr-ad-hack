@@ -11,7 +11,7 @@ class TeamsAppAgent(Project):
         layers = [           
             CodeLayer(
                 header='Cards - Layer 0',
-                code_relative_path='cards',
+                code_relative_path='teamsBot',
                 human_label='Cards',
                 flag_label='cards'
             ),           
